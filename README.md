@@ -1,3 +1,7 @@
+# Project description
+
+This repository contains updated code required by the Functional Programming course (Fachhochschule Technikum Wien - Master's Program Software Engineering). Updates to the project are localized within the PolygonDrawing.fs and Main.fs. Template was provided by the lecturer.
+
 # Polygon Drawing template
 
 This repository is based on the [Feliz](https://github.com/Zaid-Ajaj/Feliz) and uses [Fable](http://fable.io/) for transpiling F# code to JS.
