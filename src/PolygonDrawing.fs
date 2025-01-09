@@ -44,7 +44,6 @@ type Msg =
     | FinishPolygon
     | Undo
     | Redo
-    | Reset
 
 // creates the initial model, which is used when creating the interactive application (see Main.fs)
 let init () =
@@ -83,15 +82,6 @@ let updateModel (msg : Msg) (model : Model) =
             model
         | Some polyline ->
             { model with finishedPolygons = polyline::model.finishedPolygons; currentPolygon = None; isPolygonFinished = true }
-    | Reset ->
-        {
-            finishedPolygons = []
-            currentPolygon = None
-            mousePos = None
-            past = None
-            future = None
-            isPolygonFinished = false
-        }
     |_ -> model
 
 // wraps an update function with undo/redo.
@@ -178,12 +168,6 @@ let render (model : Model) (dispatch : Msg -> unit) =
                 prop.style [style.margin 20]
                 prop.onClick (fun _ -> dispatch Redo)
                 prop.children [Html.text "redo"]
-            ]
-            Html.button [
-                prop.style [style.margin 20]
-                prop.onClick (fun _ -> dispatch Reset)
-                prop.disabled (not model.isPolygonFinished)
-                prop.children [Html.text "reset" ]
             ]
             Html.br []
             Svg.svg [
