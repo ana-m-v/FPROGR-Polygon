@@ -150,7 +150,7 @@ let render (model : Model) (dispatch : Msg -> unit) =
         ] 
 
     // collect all svg elements of all finished polygons
-    let finishedPolygons = 
+    let finisehdPolygons = 
         model.finishedPolygons |> List.collect (viewPolygon "green")
     let currentPolygon =
         match model.currentPolygon with
@@ -163,7 +163,7 @@ let render (model : Model) (dispatch : Msg -> unit) =
                 // if we have a current mouse position, prepend the mouse position to the resulting polygon
                 viewPolygon "red" (preview :: p)
  
-    let svgElements = List.concat [finishedPolygons; currentPolygon]
+    let svgElements = List.concat [finisehdPolygons; currentPolygon]
 
     Html.div [
         prop.style [style.custom("userSelect","none")]
@@ -215,3 +215,4 @@ let render (model : Model) (dispatch : Msg -> unit) =
             ]
         ]
     ]
+    
